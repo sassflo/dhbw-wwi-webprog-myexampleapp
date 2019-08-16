@@ -1,4 +1,4 @@
-Beispielanwendung "My Songbook"
+Beispielanwendung "My-Example-App"
 ===============================
 
 Kurzbeschreibung
@@ -11,7 +11,7 @@ Aufrufen der HTML-Datei gestartet und dann bis zum Verlassen der
 App nicht wieder neugeladen wird.
 
 Die Anwendung kann an folgender Stelle online betrachtet werden:
-https://www.wpvs.de/my-songbook/
+TODO
 
 Verwendete Technologien
 -----------------------
@@ -39,10 +39,7 @@ Zusätzlich werden folgende Bibliotheken genutzt:
 UI-Skizzen und Screenshots
 --------------------------
 
-Die App richtet sich an Musiker, die anhand eines Lead Sheets neue Lieder
-üben oder diese auf der Bühne vortragen wollen. Hierfür bietet sie eine
-einfache Verwaltung von Songtexten mit der Möglichkeit, neue Texte online
-zu suchen und der eigenen Sammlung hinzuzufügen.
+TODO
 
 <table style="max-width: 100%;">
     <tr>
@@ -75,7 +72,7 @@ Copyright
 Dieses Projekt ist lizenziert unter
 [_Creative Commons Namensnennung 4.0 International_](http://creativecommons.org/licenses/by/4.0/)
 
-© 2018 Dennis Schulmeister-Zimolong <br/>
+© 2019 Florian Saß <br/>
 
-E-Mail: [dhbw@windows3.de](mailto:dhbw@windows3.de) <br/>
-Webseite: https://www.wpvs.de
+E-Mail: [vorlesung@sass.direct](mailto:vorlesung@sass.direct) <br/>
+Webseite: TODO
