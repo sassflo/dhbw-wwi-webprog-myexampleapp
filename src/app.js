@@ -1,6 +1,8 @@
 "use strict";
 /*Main Class of Application*/
 
+import stylesheet from "./app.css";
+
 class App {
   constructor() {
 

@@ -2,6 +2,7 @@
 //JS File for the Main Window
 
 import App from "./app.js";
+import stylesheet from "./index.css"
 
 //When DOM ready
 window.addEventListener("load", () => {
