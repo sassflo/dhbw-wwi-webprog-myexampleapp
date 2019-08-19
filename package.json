@@ -8,7 +8,7 @@
     "build": "npm run clean && parcel build src/*.html --public-url . --detailed-report --experimental-scope-hoisting",
     "watch": "npm run clean && parcel watch src/*.html --public-url . --detailed-report --experimental-scope-hoisting",
     "start": "parcel src/index.html --open",
-    "prod":"parcel src/index --open --port 80"
+    "prod":"parcel build html.js"
   },
   "repository": {
     "type": "git",
