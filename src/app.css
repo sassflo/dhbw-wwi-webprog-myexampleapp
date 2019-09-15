@@ -4,7 +4,7 @@
  * Anwendung überschrieben werden.
  */
 #app {
-  background-color: white;
+  background-color: var(--header-normal-background-color);
   flex: 1;
 }
 
@@ -80,8 +80,8 @@
     /*
      * Temporärer Inhalt, solange es noch keinen richtigen Inhalt gibt
      * Bild: https://pixabay.com/de/handwerker-baustelle-arbeiter-3094035/
-     */
-    background-image: url(construction.jpg);
+    */
+    background-color: var(--main--background-color);
     background-size: 100% auto;
     background-position: top center;
     background-repeat: no-repeat;
@@ -101,8 +101,8 @@
     /* Rahmen um den Hauptbereich zeichnen */
     #app {
         max-width: 80em;
-        margin-top: 2em;
-        margin-bottom: 2em;
+        margin-top: 0em;
+        margin-bottom: 0em;
 
         border: 1px solid rgba(32,32,32, 0.2);
         box-shadow: 1px 1px 3px rgba(0,0,0, 0.1);
