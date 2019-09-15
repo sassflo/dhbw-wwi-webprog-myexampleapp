@@ -3,30 +3,21 @@
 import stylesheet from "./receipe-page.css";
 
 class ReceipePage {
-  constructor(app, id) {
+  constructor(app, id, action) {
     this._app = app;
     this._id = id;
+    this._action = action;
   }
 
   onShow() {
     // Anzuzeigende HTML-Elemente ermitteln
     let section = document.querySelector("#receipe-page").cloneNode(true);
 
-    let content = {
+    return {
         className: "receipe-page",
         topbar: section.querySelectorAll("header > *"),
         main: section.querySelectorAll("main > *"),
     };
-
-    // Event Handler registrieren
-    let myReceipesItem = section.querySelector("header .item.my-receipes");
-
-    myReceipesItem.addEventListener("click", () => {
-        this._app.showMyReceipes("", "new");
-    })
-
-    // Ergebnis zurückliefern
-    return content;
   }
 
   onLeave(goon) {
@@ -34,7 +25,11 @@ class ReceipePage {
   }
 
   get title() {
-    return "[Rezeptname]";
+    if(this._id!="")
+    {
+      return "Rezept Nummer " + this._id;
+    }
+    return "Neues Rezept";
   }
 }
 

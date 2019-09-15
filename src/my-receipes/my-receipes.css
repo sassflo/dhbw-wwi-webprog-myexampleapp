@@ -6,3 +6,40 @@
 .my-receipes main {
     color: orchid !important;
 }
+
+table {
+  width: 60%;
+  margin: auto;
+  color: var(--font-color);
+  text-shadow: none;
+  border-collapse: collapse;
+}
+
+th {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  border: 1px var(--font-color) solid;
+  font-size: 24px;
+}
+
+td {
+  #border-left: 1px var(--font-color) solid;
+  height: 1.2ex;
+}
+
+th > .name
+{
+  grid-column-start: 1;
+  grid-column-end: 5;
+  text-align: left;
+  padding-left: 1em;
+  font-size: inherit;
+}
+
+th > .edit-link
+{
+    color: var(--accent-color);
+    grid-column: 6;
+    background-image: url("../../images/edit64.png");
+}

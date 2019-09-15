@@ -2,18 +2,52 @@
 /*Main Class of Application*/
 
 import stylesheet from "./app.css";
+
+import Navigo from "navigo/lib/navigo.js";
+import DB from "./database.js";
+
 import MyReceipes from "./my-receipes/my-receipes.js";
 import ReceipePage from "./receipe-page/receipe-page.js";
+
+
+// Initialize Firebase
+
 
 class App {
   constructor() {
     this._title = "Foodhelper";
     this._currentView = null;
+
+    //Single Page Router initialiesieren
+    this._router = new Navigo();
+    this._currentUrl = "";
+    this._navAborted = false;
+
+    this._router.on({
+      "/":                   () => this.showMyReceipes(),
+      "/my-receipes":        () => this.showMyReceipes(),
+      "/receipe/new":       () => this.showReceipePage("", "new"),
+      "/receipe/show/:id":  params => this.showReceipePage(params.id, "display"),
+      "/receipe/edit/:id":  params => this.showReceipePage(params.id, "edit")
+    });
+
+    this._router.hooks({
+      after: (params) => {
+        if(!this._navAborted) {
+          this._currentUrl = this._router.lastRouteResolved().url;
+        } else {
+          this._router.pause(true);
+          this._router.navigate(this._currentUrl);
+          this._router.pause(false);
+          this._navAborted = false;
+        }
+      }
+    });
   }
 
   start() {
     console.log("App started successfully :)");
-    this.showMyReceipes();
+    this._router.resolve();
   }
 
   showMyReceipes() {
@@ -21,15 +55,21 @@ class App {
     this._switchVisibleView(view);
   }
 
-  showReceipePage() {
-    let view = new ReceipePage(this);
+  showReceipePage(id, action) {
+    let view = new ReceipePage(this, id, action);
     this._switchVisibleView(view);
   }
 
   _switchVisibleView(view) {
-    let goon = () => this._switchVisibleView(view);
+    let newUrl = this._router.lastRouteResolved().url;
+    console.log(newUrl);
+    let goon = () => {
+      this._router.navigate(newUrl + "?goon");
+    }
 
     if(this._currentView && !this._currentView.onLeave(goon)) {
+      console.log("Navigation aborted");
+      this._navAborted = true;
       return false;
     }
 
@@ -70,7 +110,11 @@ class App {
             main.appendChild(element);
         });
     }
-}
+    // Navigo an die Links in der View binden
+    this._router.updatePageLinks();
+    console.log("Page Links Updated");
+    //end of _switchVisibleContent
+  }
 }
 
 export default App;

@@ -16,7 +16,7 @@
             <div class="top left">
                 <div class="item inactive">
                     <b>
-                        Florian Saß Example App
+                        Foodhelper
                     </b>
                 </div>
             </div>
@@ -35,12 +35,23 @@
 
         </main>
       </section>
+
+      <!--
+      ________________SECTION: Alle Rezepte anzeigen______________________
+    -->
       <section id="my-receipes" class="hidden">
         <header>
           <!-- Untere Zeile (dynamisch je nach View) -->
           <div class="left">
-              <div class="item receipe-page">
-                  Meine Rezepte
+              <div class="item">
+                <a href="/receipe/edit/1" data-navigo>
+                  Rezept 1
+                </a>
+              </div>
+              <div class="item">
+                <a href="/receipe/new" data-navigo>
+                  +
+                </a>
               </div>
               <div class="item">
                   TODO
@@ -55,14 +66,22 @@
             <div class="padding">
                 Übersicht
             </div>
+            <ul id="receipe-list"></ul>
+            <table id="receipe-table"></table>
         </main>
       </section>
+
+      <!--
+      _______________SECTION: Ein einzelnes Rezept anzeigen_______________
+    -->
       <section id="receipe-page" class="hidden">
         <!-- Topbar -->
         <header>
             <div class="left">
-              <div class="item my-receipes">
-                  Ein einziges Rezept
+              <div class="item">
+                <a href="/">
+                  Alle Rezepte
+                </a>
               </div>
             </div>
             <div class="right">
@@ -80,4 +99,5 @@
         </main>
       </section>
     </body>
+
 </html>

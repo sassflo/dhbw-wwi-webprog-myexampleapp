@@ -1,5 +1,7 @@
 html {
-    --font-color:                     darkblue;
+    --font-color:                     #455a64;
+    --accent-color:                   #66bb6a;
+
     --highlight-background-color:     #66bb6a;
 
     --header-normal-background-color: #455a64;
