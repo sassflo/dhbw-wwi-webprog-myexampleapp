@@ -22,13 +22,15 @@ class App {
     this._router = new Navigo();
     this._currentUrl = "";
     this._navAborted = false;
+    this._db = new DB();
 
     this._router.on({
       "/":                   () => this.showMyReceipes(),
       "/my-receipes":        () => this.showMyReceipes(),
       "/receipe/new":       () => this.showReceipePage("", "new"),
       "/receipe/show/:id":  params => this.showReceipePage(params.id, "display"),
-      "/receipe/edit/:id":  params => this.showReceipePage(params.id, "edit")
+      "/receipe/edit/:id":  params => this.showReceipePage(params.id, "edit"),
+      "/receipe/delete/:id":params => this.deleteReceipePage(params.id)
     });
 
     this._router.hooks({
@@ -58,6 +60,15 @@ class App {
   showReceipePage(id, action) {
     let view = new ReceipePage(this, id, action);
     this._switchVisibleView(view);
+  }
+
+  deleteReceipePage(id) {
+    this._db.deleteReceipe(id).then(function() {
+      console.log("Receipe " + id + "delted");
+      location.reload();
+    }).catch(function(error) {
+      console.error("Error removing document: ", error);
+    });
   }
 
   _switchVisibleView(view) {

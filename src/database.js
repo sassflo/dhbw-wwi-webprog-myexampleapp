@@ -14,17 +14,27 @@ messagingSenderId: "19921560329",
 appId: "1:19921560329:web:d0882d74479ec8914029d8"
 };
 
+let _db = "";
+
 class DB {
   constructor() {
     firebase.initializeApp(_firebaseConfig);
-    this._resultObject = [];
+    _db = firebase.firestore();
   }
 
   getAllReceipes()
   {
-    let someObject = [];
-    let db = firebase.firestore();
-    return db.collection("receipes").get();
+    return _db.collection("receipes").get();
+  }
+
+  getReceipe(id)
+  {
+    return _db.collection("receipes").doc(id).get();
+  }
+
+  deleteReceipe(id)
+  {
+    return _db.collection("receipes").doc(id).delete();
   }
 }
 

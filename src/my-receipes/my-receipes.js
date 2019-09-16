@@ -4,19 +4,20 @@ import stylesheet from "./my-receipes.css";
 import DB from "../database.js";
 
 let _app = "";
+let _db = "";
 
 class MyReceipes {
   constructor(app) {
     this._app = app;
     _app = this._app;
+    _db = app._db;
   }
 
   onShow() {
     // Anzuzeigende HTML-Elemente ermitteln
     let section = document.querySelector("#my-receipes").cloneNode(true);
 
-    let db = new DB();
-    db.getAllReceipes().then(function(querySnapshot)
+    _db.getAllReceipes().then(function(querySnapshot)
     {
       console.log("Receipes loaded");
       onFinishedLoading(querySnapshot);
@@ -46,22 +47,17 @@ let onFinishedLoading = (receipes) =>
       // doc.data() is never undefined for query doc snapshots
       console.log(doc.id, " => ", doc.data().Name);
 
-      let receipe = document.createElement("tr");
-      let receipeName = document.createElement("td");
-      let receipeLink = document.createElement("td");
-
-      receipeName.classList.add("name");
-      receipeLink.classList.add("edit-link");
-
-      receipeName.textContent = doc.data().Name;
-      receipeLink.innerHTML = '<a href="/receipe/edit/' +  doc.id + '"  data-navigo><img class="icon" src="/eye32.5ddd716b.png"><img class="icon" src="/edit32.3ab90f6c.png"></a>';
-
-      receipeLink.setAttribute("href", "/" + doc.id + "/edit");
-
-      receipe.appendChild(receipeName);
-      receipe.appendChild(receipeLink);
+      let receipe= document.getElementById("dummy").cloneNode(true);
+      receipe.setAttribute("id", "receipe_" + doc.id);
       table.appendChild(receipe);
+
+      document.querySelectorAll("#receipe_" + doc.id + " > .name")[0].textContent = doc.data().Name;
+      let buttons = document.querySelectorAll("#receipe_" + doc.id +" > .links a");
+      buttons[0].setAttribute("href", "/receipe/show/" + doc.id);
+      buttons[1].setAttribute("href", "/receipe/edit/" + doc.id);
+      buttons[2].setAttribute("href", "/receipe/delete/" + doc.id);
       });
+      
       _app._router.updatePageLinks();
       console.log("Alle Page Links updated");
   }

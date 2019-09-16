@@ -6,3 +6,19 @@
 .receipe-page main {
     color: orangered !important;
 }
+
+table .view {
+
+}
+
+table .edit {
+
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: inline;
+}

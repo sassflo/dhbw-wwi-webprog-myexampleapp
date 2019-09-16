@@ -83,3 +83,8 @@ body {
 .padding {
     padding: 0.5rem;
 }
+
+#logo {
+  max-height: 4em;
+  margin: 0.5em auto 0.5em 2em;
+}

@@ -47,3 +47,22 @@ th > .edit-link
   margin-top: 0.3em;
   padding-bottom: 0;
 }
+
+#dummy {
+  display: none;
+}
+
+#add-link {
+    font-size: 2em;
+    font-weight: bolder;
+    padding: 0;
+}
+
+#add-link:hover {
+    background-color: var(--primary-color) !important;
+}
+
+#add-link > a:hover {
+    color: var(--secondary-color) !important;
+    text-decoration: none !important;
+}

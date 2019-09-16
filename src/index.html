@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
+        <link rel='shortcut icon' type='image/x-icon' href='../images/favicon-16x16.png'/>
         <title>Foodhelper</title>
         <script src="index.js"></script>
     </head>
@@ -14,11 +15,7 @@
         <header>
             <!-- Obere Zeile (fester Inhalt) -->
             <div class="top left">
-                <div class="item inactive">
-                    <b>
-                        Foodhelper
-                    </b>
-                </div>
+                <a href="/" data-navigo><img id="logo" src="../images/logo_green.png"/></a>
             </div>
             <div class="top right">
                 <div class="item">
@@ -43,35 +40,26 @@
         <header>
           <!-- Untere Zeile (dynamisch je nach View) -->
           <div class="left">
-              <div class="item">
-                <a href="/receipe/edit/1" data-navigo>
-                  Rezept 1
-                </a>
-              </div>
-              <div class="item">
+              <div id="add-link" class="item">
                 <a href="/receipe/new" data-navigo>
                   +
                 </a>
               </div>
-              <div class="item">
-                  TODO
-              </div>
           </div>
           <div class="right">
-              <input placeholder="Suchen" />
+
           </div>
         </header>
         <!-- Hauptbereich -->
         <main>
-            <div class="padding">
-                Übersicht
-            </div>
+            <h1>Alle Rezepte</h1>
             <table id="receipe-table">
               <tr id="dummy">
                 <td class="name">Dummyzeile</td>
-                <td class="edit-link">
-                  <img class="icon" src="../images/eye32.png"/>
-                  <img class="icon"  src="../images/edit32.png"/>
+                <td class="links">
+                  <a id="view-link" data-navigo><img class="icon" src="../images/eye32.png"/></a>
+                  <a id="edit-link" data-navigo><img class="icon"  src="../images/edit32.png"/></a>
+                  <a id="delete-link" data-navigo><img class="icon"  src="../images/delete32.png"/></a>
                 </td>
               </tr>
             </table>
@@ -86,7 +74,7 @@
         <header>
             <div class="left">
               <div class="item">
-                <a href="/">
+                <a href="/my-receipes" data-navigo>
                   Alle Rezepte
                 </a>
               </div>
@@ -100,9 +88,10 @@
 
         <!-- Hauptbereich -->
         <main>
-            <div class="padding">
-                [Rezept anzeigen]
-            </div>
+            <h1>...</h1>
+            <table id="ingredients-table">
+
+            </table>
         </main>
       </section>
     </body>
