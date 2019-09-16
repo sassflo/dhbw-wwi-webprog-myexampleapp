@@ -10,21 +10,21 @@
 table {
   width: 60%;
   margin: auto;
-  color: var(--font-color);
+  color: var(--primary-dark-color);
   text-shadow: none;
   border-collapse: collapse;
 }
 
-th {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  border: 1px var(--font-color) solid;
+tr {
+  #display: grid;
+  #grid-template-columns: repeat(5, 1fr);
+  #grid-template-rows: repeat(3, 1fr);
+  border-bottom: 1px var(--primary-light-color) solid;
   font-size: 24px;
 }
 
 td {
-  #border-left: 1px var(--font-color) solid;
+  #border-left: 1px var(--primary-dark-color) solid;
   height: 1.2ex;
 }
 
@@ -41,5 +41,9 @@ th > .edit-link
 {
     color: var(--accent-color);
     grid-column: 6;
-    background-image: url("../../images/edit64.png");
+}
+
+.icon {
+  margin-top: 0.3em;
+  padding-bottom: 0;
 }
