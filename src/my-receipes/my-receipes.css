@@ -64,8 +64,12 @@ th > .edit-link
     text-decoration: none !important;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
   tr, td {
     font-size: 14px;
+  }
+
+  table {
+    width: 100%;
   }
 }
