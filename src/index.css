@@ -20,7 +20,13 @@ body {
     font-size: 11pt;
     line-height: 1.6;
     color: var(--font-color);
-    background-color: blue;
+    background-color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .desktop {
+    display: none !important;
+  }
 }
 
 /*
@@ -87,4 +93,10 @@ body {
 #logo {
   max-height: 4em;
   margin: 0.5em auto 0.5em 2em;
+}
+
+h1 {
+  font-size: 32px;
+  color: #338a3e;
+  text-shadow: none;
 }
