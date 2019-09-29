@@ -4,7 +4,7 @@
  * der Anwendung überschrieben werden.
  */
 
-table {
+.my-receipes table {
   width: 60%;
   margin: auto;
   color: var(--primary-dark-color);
@@ -13,7 +13,7 @@ table {
   border: none;
 }
 
-tr {
+.my-receipes tr {
   #display: grid;
   #grid-template-columns: repeat(5, 1fr);
   #grid-template-rows: repeat(3, 1fr);
@@ -22,13 +22,13 @@ tr {
   text-align: left;
 }
 
-td {
+.my-receipes td {
   #border-left: 1px var(--primary-dark-color) solid;
   height: 1.2ex;
   padding-left: 2em;
 }
 
-th > .name
+.my-receipes th > .name
 {
   grid-column-start: 1;
   grid-column-end: 5;
@@ -37,43 +37,43 @@ th > .name
   font-size: inherit;
 }
 
-th > .edit-link
+.my-receipes th > .edit-link
 {
     color: var(--accent-color);
     grid-column: 6;
 }
 
-.icon {
+.my-receipes .icon {
   margin-top: 0.3em;
   padding-bottom: 0;
 }
 
-#dummy {
+.my-receipes #dummy {
   display: none;
 }
 
-#add-link {
+.my-receipes #add-link {
     font-size: 2em;
     font-weight: bolder;
     padding: 0;
 }
 
-#add-link:hover {
+.my-receipes #add-link:hover {
     background-color: var(--primary-color) !important;
 }
 
-#add-link > a:hover {
+.my-receipes #add-link > a:hover {
     color: var(--secondary-color) !important;
     text-decoration: none !important;
 }
 
 @media screen and (orientation: portrait) {
-  tr, td {
+  .my-receipes tr, td {
     font-size: 24px;
     padding-left: 1em;
   }
 
-  table {
+  .my-receipes table {
     width: 100%;
   }
 }

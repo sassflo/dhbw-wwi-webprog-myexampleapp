@@ -4,14 +4,14 @@
  * der Anwendung überschrieben werden.
  */
 .receipe-page main {
-  
-}
-
-table .view {
 
 }
 
-table .edit {
+.receipe-page table .view {
+
+}
+
+.receipe-page table .edit {
 
 }
 

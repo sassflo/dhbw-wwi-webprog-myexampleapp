@@ -1,9 +1,9 @@
-form {
+.new-receipe form {
   width: 60%;
   margin: auto;
 }
 
-input {
+.new-receipe input {
   display: block;
   width: 100%;
   margin: auto;
@@ -14,7 +14,7 @@ input {
   color: var(--font-color);
 }
 
-input-label {
+.new-receipe input-label {
   display: block;
   margin: auto;
   margin-top: 2ex;
@@ -25,30 +25,30 @@ input-label {
   text-shadow: none;
 }
 
-input.button {
+.new-receipe input.button {
   margin-top: 1ex;
   color: var(--primary-color);
   background-color: var(--secondary-color);
 }
 
-input.ingredient, input.amount {
+.new-receipe input.ingredient, input.amount {
   border: none;
   border-bottom: 1px var(--primary-light-color) solid;
   display: inline-block;
 }
 
-input.ingredient {
+.new-receipe input.ingredient {
   width: 100%;
 }
 
-input.amount {
+.new-receipe input.amount {
   display: none;
 }
 
 tr {
 }
 
-table.ingredient-table {
+.new-receipe table.ingredient-table {
   border: none;
   width: 100%;
 }
