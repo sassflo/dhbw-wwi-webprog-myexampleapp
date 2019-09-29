@@ -67,7 +67,7 @@ th > .edit-link
     text-decoration: none !important;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (orientation: portrait) {
   tr, td {
     font-size: 24px;
     padding-left: 1em;
