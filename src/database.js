@@ -41,6 +41,11 @@ class DB {
   {
     return _db.collection("receipes").doc(id).delete();
   }
+
+  findPossibleReceipes(ingredients)
+  {
+    return true;
+  }
 }
 
 export default DB;

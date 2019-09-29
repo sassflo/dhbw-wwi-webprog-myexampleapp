@@ -66,26 +66,19 @@ class ReceipePage {
 }
 
 let onFinishedLoading = (doc) => {
-  let name = document.getElementsByTagName("h1")[0]
-  name.textContent = doc.data().name + " / " + doc.data().author;
+  console.log('Finished Loading');
+  let name = document.querySelector('h1').textContent = doc.data().name;
+  document.querySelector('author').textContent = "Veröffentlicht von " + doc.data().author;
 
   console.log(document.getElementsByTagName("h1")[0].textContent);
 
   let table = document.getElementById("ingredients-table");
-  let ingred1 = document.createElement("tr");
-  let ingred2 = document.createElement("tr");
-  let ingred3 = document.createElement("tr");
-  let ingred4 = document.createElement("tr");
 
-  ingred1.textContent = "Käse";
-  ingred2.textContent = "Butter";
-  ingred3.textContent = "Maultaschen";
-  ingred4.textContent = "Ei";
-
-  table.appendChild(ingred1);
-  table.appendChild(ingred2);
-  table.appendChild(ingred3);
-  table.appendChild(ingred4);
+  doc.data().ingredients.forEach((ingredient, array, index) => {
+    let ingredientElement = document.createElement("tr");
+    ingredientElement.textContent = ingredient.ingredient;
+    table.appendChild(ingredientElement);
+  })
 
   table.classList.add("visible");
 }

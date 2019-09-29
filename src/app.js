@@ -9,6 +9,7 @@ import DB from "./database.js";
 import MyReceipes from "./my-receipes/my-receipes.js";
 import ReceipePage from "./receipe-page/receipe-page.js";
 import NewReceipePage from "./new-receipe/new-receipe.js";
+import StartPage from "./start-page/start-page.js";
 
 
 // Initialize Firebase
@@ -26,11 +27,12 @@ class App {
     this._db = new DB();
 
     this._router.on({
-      "/":                   () => this.showMyReceipes(),
-      "/my-receipes":        () => this.showMyReceipes(),
-      "/receipe/new":       () => this.showNewReceipePage(),
-      "/receipe/show/:id":  params => this.showReceipePage(params.id, "display"),
-      "/receipe/edit/:id":  params => this.showReceipePage(params.id, "edit"),
+      "*":                    () => this.showStartPage(),
+      "/":                    () => this.showStartPage(),
+      "/my-receipes":         () => this.showMyReceipes(),
+      "/new":                 () => this.showNewReceipePage(),
+      "/show":   (params, query) => this.showReceipePage(query),
+      "/edit":           (query) => this.showReceipePage(query),
       "/receipe/delete/:id":params => this.deleteReceipePage(params.id)
     });
 
@@ -53,6 +55,11 @@ class App {
     this._router.resolve();
   }
 
+  showStartPage() {
+    let view = new StartPage(this);
+    this._switchVisibleView(view);
+  }
+
   showMyReceipes() {
     let view = new MyReceipes(this);
     this._switchVisibleView(view);
@@ -63,8 +70,11 @@ class App {
     this._switchVisibleView(view);
   }
 
-  showReceipePage(id, action) {
-    let view = new ReceipePage(this, id, action);
+  showReceipePage(query) {
+    const _query = query.split('=').map(pair => pair.split(':'));
+    console.log("Showing Receipe " + _query[1]);
+
+    let view = new ReceipePage(this, _query[1][0], "display");
     this._switchVisibleView(view);
   }
 

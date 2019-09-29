@@ -1,25 +1,23 @@
 "use strict";
 
-import stylesheet from "./new-receipe.css";
+import stylesheet from "./start-page.css";
 
+let _app = "";
 let _db = "";
-let _app;
 
-class NewReceipePage {
-  constructor(app, id, action) {
+class StartPage {
+  constructor(app) {
     this._app = app;
-    this._id = id;
-    this._action = action;
-    _db = this._app._db;
     _app = this._app;
+    _db = app._db;
   }
 
   onShow() {
     // Anzuzeigende HTML-Elemente ermitteln
-    let section = document.querySelector("#new-receipe").cloneNode(true);
+    let section = document.querySelector("#start-page").cloneNode(true);
 
     return {
-        className: "new-receipe",
+        className: "start-page",
         topbar: section.querySelectorAll("header > *"),
         main: section.querySelectorAll("main > *"),
     };
@@ -35,7 +33,6 @@ class NewReceipePage {
         submitEventListener(event);
       }
     });
-
     //Verlängere Input Funktion
     document.querySelectorAll('input.ingredient').forEach((ingredientElement) => {
       console.log(ingredientElement.placeholder);
@@ -48,7 +45,7 @@ class NewReceipePage {
   }
 
   get title() {
-    return "Neues Rezept";
+    return "Was gibt es zu essen?";
   }
 }
 
@@ -81,31 +78,56 @@ let ingredientEventListener = (event) => {
 }
 
 let submitEventListener = (event) => {
-  let receipeName = document.getElementById('receipe-name').value;
-  let receipeAuthor = document.getElementById('receipe-author').value;
-  if(receipeAuthor === '')
-    receipeAuthor = 'anonym';
-
-  let recipeIngredients = [];
+  let ingredients = [];
 
   let allIngredientElements = document.querySelectorAll('input.ingredient');
-  let allAmountElements = document.querySelectorAll('input.amount');
   for (let i = 1; i < allIngredientElements.length; i++) {
     if(allIngredientElements[i].value !== '') {
-      recipeIngredients.push({"ingredient": allIngredientElements[i].value,
-                            "amount": allAmountElements[i].value});
+      ingredients.push(allIngredientElements[i].value);
     }
   }
-  let receipe = { "name": receipeName,
-                  "author": receipeAuthor,
-                  "ingredients": recipeIngredients};
-  console.log(receipe);
-  _db.addReceipe(receipe).then(() => window.location.href = '/my-receipes');
-
+  console.log(ingredients);
+  _db.getAllReceipes().then(function(querySnapshot) {
+        console.log('Query successful');
+        let resultList = [];
+        //Iteriere durch alle gefunden Rezepte
+        querySnapshot.forEach(function(doc) {
+          let receipeIngredients = doc.data().ingredients;
+          if(isTheReceipePossible(receipeIngredients, ingredients))
+            resultList.push({'name': doc.data().name,
+                              'id': doc.id});
+        });
+        console.log(resultList);
+        if(resultList.length === 0)
+        {
+          alert("Leider kannst du damit nichts kochen.");
+          return;
+        }
+        window.location.href = '/show?id=' + resultList[Math.floor(Math.random() * resultList.length)].id;
+    })
+    .catch(function(error) {
+        console.log("Error getting documents: ", error);
+    });
 }
 
-// let addEventListenerToIngredient = (ingredientElement) => {
-//
-// }
+let isTheReceipePossible = (receipe, ingredients) =>
+{
+  //Iteriere durch alle Zutaten im Rezept
+  let ingredientsNeeded = receipe.length;
+  let ingredientsAvailable = 0;
+  receipe.forEach((receipeIngredient) => {
+    //console.log(doc.data());
+    //Iteriere durch alle Zutaten im Kühlschrank
+    ingredients.forEach((ingredient) => {
+      console.log("Checking if " + ingredient + " is contained in " + receipeIngredient.ingredient);
+      if(receipeIngredient.ingredient === ingredient && ingredient !== '') {
+        ingredientsAvailable++;
+        console.log('Found ' + ingredient);
+        return;
+      }
+    });
+  });
+  return ingredientsNeeded === ingredientsAvailable;
+}
 
-export default NewReceipePage;
+export default StartPage;

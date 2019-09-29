@@ -54,6 +54,8 @@
 
 #app header .item:not(.inactive) {
     cursor: pointer;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 #app header a,

@@ -96,7 +96,16 @@ body {
 }
 
 h1 {
-  font-size: 32px;
-  color: #338a3e;
+  font-size: 36px;
+  color: var(--secondary-dark-color);
   text-shadow: none;
+  margin-bottom: 0;
+}
+
+author {
+  font-size: 24px;
+  color: var(--primary-light-color);
+  text-shadow: none;
+  display: block;
+  margin-top: 0;
 }

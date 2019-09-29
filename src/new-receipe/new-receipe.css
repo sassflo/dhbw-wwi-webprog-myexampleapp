@@ -38,11 +38,11 @@ input.ingredient, input.amount {
 }
 
 input.ingredient {
-  width: 80%;
+  width: 100%;
 }
 
 input.amount {
-  width: 15%;
+  display: none;
 }
 
 tr {

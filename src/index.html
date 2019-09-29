@@ -41,7 +41,7 @@
           <!-- Untere Zeile (dynamisch je nach View) -->
           <div class="left">
               <div id="add-link" class="item">
-                <a href="/receipe/new" data-navigo>
+                <a href="/new" data-navigo>
                   +
                 </a>
               </div>
@@ -52,17 +52,17 @@
         </header>
         <!-- Hauptbereich -->
         <main>
-            <h1>Alle Rezepte</h1>
-            <table id="receipe-table">
-              <tr id="dummy">
-                <td class="name">Dummyzeile</td>
-                <td class="links">
-                  <a id="view-link" class="hidden" data-navigo><img class="icon" src="../images/eye32.png"/></a>
-                  <a id="edit-link" class="hidden" data-navigo><img class="icon"  src="../images/edit32.png"/></a>
-                  <a id="delete-link" data-navigo><img class="icon"  src="../images/delete32.png"/></a>
-                </td>
-              </tr>
-            </table>
+          <h1>Alle Rezepte</h1>
+          <table id="receipe-table">
+            <tr id="dummy">
+              <td class="name">Dummyzeile</td>
+              <td class="links">
+                <a id="view-link" class="hidden" data-navigo><img class="icon" src="../images/eye32.png"/></a>
+                <a id="edit-link" class="hidden" data-navigo><img class="icon"  src="../images/edit32.png"/></a>
+                <a id="delete-link" data-navigo><img class="icon"  src="../images/delete32.png"/></a>
+              </td>
+            </tr>
+          </table>
         </main>
       </section>
 
@@ -85,8 +85,15 @@
                 </div>
             </div>
         </header>
+        <main>
+          <h1></h1>
+          <author></author>
+          <table id="ingredients-table">
+
+          </table>
+        </main>
       </section>
-        <!--
+      <!--
         _______________SECTION: Ein neues Rezept anlegen_______________
       -->
       <section id="new-receipe" class="hidden">
@@ -126,6 +133,54 @@
                 <th>
                   <input class="ingredient" placeholder="Zutat"/>
                   <input class="amount" type="number" placeholder="Menge"/>
+                <th>
+              </tr>
+            </table>
+            <input id="submit_button" class="button" type="button" value="Anlegen"/>
+        </main>
+      </section>
+
+      <!--
+        _______________SECTION: Startseite anzeigen_______________
+      -->
+      <section id="start-page" class="hidden">
+        <!-- Topbar -->
+        <header>
+          <div class="left">
+            <div id="add-link" class="item">
+              <a href="/new" data-navigo>
+                +
+              </a>
+            </div>
+            <div class="item">
+              <a href="/my-receipes" data-navigo>
+                Alle Rezepte
+              </a>
+            </div>
+          </div>
+          <div class="rigth hidden">
+            <div class="item overview">
+              Zurück zur Startseite
+            </div>
+          </div>
+        </header>
+
+        <!-- Hauptbereich -->
+        <main>
+          <h1>Was gibt es heute?</h1>
+          <form action="">
+            <input-label>Was hast du da?</input-label>
+            <table class="ingredient-table">
+              <tr class="hidden">
+                <th>
+                  <input class="ingredient dummy" placeholder="Zutat"/>
+                  <input class="amount dummy" type="number" placeholder="Menge" value="1"/>
+                <th>
+              </tr>
+              <tr class="last-element">
+                <th>
+                  <input class="ingredient" placeholder="Zutat"/>
+                  <input class="amount" type="number" placeholder="Menge" value="1"/>
                 <th>
               </tr>
             </table>
