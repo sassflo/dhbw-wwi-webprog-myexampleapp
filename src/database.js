@@ -22,6 +22,11 @@ class DB {
     _db = firebase.firestore();
   }
 
+  addReceipe(receipe)
+  {
+    return _db.collection("receipes").add(receipe);
+  }
+
   getAllReceipes()
   {
     return _db.collection("receipes").get();

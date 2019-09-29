@@ -10,19 +10,22 @@ table {
   color: var(--primary-dark-color);
   text-shadow: none;
   border-collapse: collapse;
+  border: none;
 }
 
 tr {
   #display: grid;
   #grid-template-columns: repeat(5, 1fr);
   #grid-template-rows: repeat(3, 1fr);
-  border-bottom: 1px var(--primary-light-color) solid;
+  border-bottom: 1px #EFEFEF solid;
   font-size: 24px;
+  text-align: left;
 }
 
 td {
   #border-left: 1px var(--primary-dark-color) solid;
   height: 1.2ex;
+  padding-left: 2em;
 }
 
 th > .name
@@ -64,9 +67,10 @@ th > .edit-link
     text-decoration: none !important;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 692px) {
   tr, td {
     font-size: 24px;
+    padding-left: 1em;
   }
 
   table {

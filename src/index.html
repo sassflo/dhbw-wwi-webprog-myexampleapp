@@ -57,8 +57,8 @@
               <tr id="dummy">
                 <td class="name">Dummyzeile</td>
                 <td class="links">
-                  <a id="view-link" data-navigo><img class="icon" src="../images/eye32.png"/></a>
-                  <a id="edit-link" data-navigo><img class="icon"  src="../images/edit32.png"/></a>
+                  <a id="view-link" class="hidden" data-navigo><img class="icon" src="../images/eye32.png"/></a>
+                  <a id="edit-link" class="hidden" data-navigo><img class="icon"  src="../images/edit32.png"/></a>
                   <a id="delete-link" data-navigo><img class="icon"  src="../images/delete32.png"/></a>
                 </td>
               </tr>
@@ -85,13 +85,51 @@
                 </div>
             </div>
         </header>
+      </section>
+        <!--
+        _______________SECTION: Ein neues Rezept anlegen_______________
+      -->
+      <section id="new-receipe" class="hidden">
+        <!-- Topbar -->
+        <header>
+          <div class="left">
+            <div class="item">
+              <a href="/my-receipes" data-navigo>
+                Alle Rezepte
+              </a>
+            </div>
+          </div>
+          <div class="rigth">
+            <div class="item overview">
+              Zurück zur Startseite
+            </div>
+          </div>
+        </header>
 
         <!-- Hauptbereich -->
         <main>
-            <h1>...</h1>
-            <table id="ingredients-table">
-
+          <h1>Neues Rezept anlegen</h1>
+          <form action="">
+            <input-label>Rezeptname</input-label>
+            <input id="receipe-name" placeholder=""/>
+            <input-label>Autor</input-label>
+            <input id="receipe-author" placeholder="--Anonym--"/>
+            <input-label>Zutaten</input-label>
+            <table class="ingredient-table">
+              <tr class="hidden">
+                <th>
+                  <input class="ingredient dummy" placeholder="Zutat"/>
+                  <input class="amount dummy" type="number" placeholder="Menge"/>
+                <th>
+              </tr>
+              <tr class="last-element">
+                <th>
+                  <input class="ingredient" placeholder="Zutat"/>
+                  <input class="amount" type="number" placeholder="Menge"/>
+                <th>
+              </tr>
             </table>
+            <input id="submit_button" class="button" type="button" value="Anlegen"/>
         </main>
       </section>
     </body>

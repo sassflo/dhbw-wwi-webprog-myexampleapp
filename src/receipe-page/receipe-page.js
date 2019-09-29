@@ -47,6 +47,11 @@ class ReceipePage {
     };
   }
 
+  onLoad()
+  {
+    return;
+  }
+
   onLeave(goon) {
     return true;
   }
@@ -62,7 +67,7 @@ class ReceipePage {
 
 let onFinishedLoading = (doc) => {
   let name = document.getElementsByTagName("h1")[0]
-  name.textContent = doc.data().Name;
+  name.textContent = doc.data().name + " / " + doc.data().author;
 
   console.log(document.getElementsByTagName("h1")[0].textContent);
 

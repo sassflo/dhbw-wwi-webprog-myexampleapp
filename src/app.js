@@ -8,6 +8,7 @@ import DB from "./database.js";
 
 import MyReceipes from "./my-receipes/my-receipes.js";
 import ReceipePage from "./receipe-page/receipe-page.js";
+import NewReceipePage from "./new-receipe/new-receipe.js";
 
 
 // Initialize Firebase
@@ -27,7 +28,7 @@ class App {
     this._router.on({
       "/":                   () => this.showMyReceipes(),
       "/my-receipes":        () => this.showMyReceipes(),
-      "/receipe/new":       () => this.showReceipePage("", "new"),
+      "/receipe/new":       () => this.showNewReceipePage(),
       "/receipe/show/:id":  params => this.showReceipePage(params.id, "display"),
       "/receipe/edit/:id":  params => this.showReceipePage(params.id, "edit"),
       "/receipe/delete/:id":params => this.deleteReceipePage(params.id)
@@ -54,6 +55,11 @@ class App {
 
   showMyReceipes() {
     let view = new MyReceipes(this);
+    this._switchVisibleView(view);
+  }
+
+  showNewReceipePage() {
+    let view = new NewReceipePage(this);
     this._switchVisibleView(view);
   }
 
@@ -87,6 +93,7 @@ class App {
     document.title = `${this._title} - ${view.title}`;
     this._currentView = view;
     this._switchVisibleContent(view.onShow());
+    view.onLoad();
     return true;
   }
 

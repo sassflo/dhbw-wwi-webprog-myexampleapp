@@ -1,0 +1,54 @@
+form {
+  width: 60%;
+  margin: auto;
+}
+
+input {
+  display: block;
+  width: 100%;
+  margin: auto;
+  padding-left: 1em;
+  font-family: sans-serif;
+  font-size: 40px;
+  height: 4.5ex;
+  color: var(--font-color);
+}
+
+input-label {
+  display: block;
+  margin: auto;
+  margin-top: 2ex;
+  font-family: sans-serif;
+  font-size: 30px;
+  text-align: left;
+  color: var(--font-color);
+  text-shadow: none;
+}
+
+input.button {
+  margin-top: 1ex;
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+}
+
+input.ingredient, input.amount {
+  border: none;
+  border-bottom: 1px var(--primary-light-color) solid;
+  display: inline-block;
+}
+
+input.ingredient {
+  width: 80%;
+}
+
+input.amount {
+  width: 15%;
+}
+
+tr {
+}
+
+table.ingredient-table {
+  border: none;
+  width: 100%;
+}
